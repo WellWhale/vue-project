@@ -24,7 +24,7 @@
 export default {
   data() {
     return {
-      msg: "학생목록",
+      msg: "상품목록",
       data: [
         { id: 1, name: "홍길동", age: 20 },
         { id: 2, name: "김민수", age: 22 },
@@ -33,10 +33,22 @@ export default {
       prodList: [],
     };
   },
+  beforeCreate() {
+    console.log("beforeCreate");
+  },
+  created() {
+    console.log("created");
+  },
+  beforeUpdate() {
+    console.log("beforeUpdate");
+  },
+  updated() {
+    console.log("updated");
+  },
   mounted() {
     // DataBindingList 컴포넌트가 생성이 되면, 생성주기 라는게 있음, 생성>마운트>소멸..
     // 컴포넌트가 닫히면 소멸 뭐 이런..
-    fetch("http://192.168.0.83:3000/products")
+    fetch("http://192.168.0.8:3000/products")
       .then((response) => response.json())
       .then((result) => {
         console.log(result);
